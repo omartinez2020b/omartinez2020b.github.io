@@ -4,12 +4,33 @@
     <meta charset="UTF-8">
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
   </head>
   <body>
     <a-scene>
-      <a-entity environment="preset:  arches;  dressingAmount:  3;  active:  true;  skyType:  gradient;  skyColor:  #ef2929;  horizonColor:  #fce94f;  lightPosition:  [object Object];  fog:  0.69;  ground:  canyon;  groundTexture:  walkernoise;  groundColor:  #c17d11;  groundColor2:  #8f5902;  dressing:  pyramids;  dressingColor:  #2e3436; "></a-entity>
+      <a-assets>
+        <a-asset-item id="rover" src="rover/scene.gltf"></a-asset-item>
+        <a-asset-item id="ship" src="ship/scene.gltf"></a-asset-item>
+        <a-asset-item id="whale" src="whale/scene.gltf"></a-asset-item>
+        <a-asset-item id="base" src="base/scene.gltf"></a-asset-item>
+      </a-assets>
+      <a-entity environment="preset:  arches;  dressingAmount:  4;  active:  true;  skyType:  gradient;  skyColor:  #5c3566;  horizonColor:  #ce5c00;  lightPosition:  [object Object];  fog:  0.69;  ground:  canyon;  groundTexture:  walkernoise;  groundColor:  #ca5314;  groundColor2:  #281104;  dressing:  arches;  dressingColor:  #1c1e25; "</a-entity>
+      <a-light type="ambient" color="#445451"></a-light>
+      <a-entity position="-40 35 40" rotation="0 100 0" gltf-model="#whale"
+              scale="5 5 5" animation-mixer
+              animation="property: position; dur: 20000;
+                         to: 200 40 4; loop: false">
+      </a-entity>
+      <a-entity position="0 0 -5"  gltf-model="#rover"
+              scale="0.5 0.5 0.5" animation-mixer>
+      </a-entity>
+      <a-entity position="10 -0.1 -5"  gltf-model="#base"
+              scale="0.01 0.01 0.01">
+      </a-entity>
+
 
     </a-scene>
   </body>
 </html>
+
 
