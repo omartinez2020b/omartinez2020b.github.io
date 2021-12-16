@@ -15,6 +15,17 @@ AFRAME.registerComponent('globe', {
     }
 });
 
+AFRAME.registerComponent('breakable', {
+    init: function() {
+        scene = document.querySelector('a-scene');
+        let el = this.el;
+        el.addEventListener('click', function() {
+            scene.removeChild(el);
+        });
+    }
+});
+
+
 AFRAME.registerComponent('basic-scene', {
     
     init: function() {
@@ -29,10 +40,11 @@ AFRAME.registerComponent('basic-scene', {
 
         box.addEventListener('click', function() {
             let sphere = document.createElement('a-sphere');
-            sphere.setAttribute('position', {x:0, y: 1.25, z: -5});
+            sphere.setAttribute('position', {x: Math.random() * (10 - 2) + 2, y: 1.25, z: -5});
             sphere.setAttribute('radius', 1.25);
             sphere.setAttribute('color', "#EF2D5E");
             sphere.setAttribute('globe', null);
+            sphere.setAttribute('breakable', null);
             let scene = document.querySelector('a-scene');
             scene.appendChild(sphere);
         });
